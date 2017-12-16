@@ -47,7 +47,7 @@ namespace Link.Modules
         {
             var keepAlive = Proto.Get<Keepalive>();
             keepAlive.Code = 0x5A;
-            Session.Send(keepAlive0);
+            Session.Send(keepAlive);
         }
     }
 }
