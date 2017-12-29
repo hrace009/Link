@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Link.Pools;
 using Link.IO;
 using Link.Modules;
@@ -232,6 +232,17 @@ namespace Link.Net
             {
                 PacketWriter.Clear();
                 PacketWriter.Write(packet);
+
+                return Send(PacketWriter);
+            }
+        }
+        public bool SendNext(params Packet[] packets)
+        {
+            lock (PacketWriter)
+            {
+                PacketWriter.Clear();
+                foreach (var packet in packets)
+                    PacketWriter.Write(packet);
                 return Send(PacketWriter);
             }
         }
