@@ -50,7 +50,7 @@ namespace LinkDebug
         public static void Main(string[] args)
         {
             var active = new TcpSocketListner();
-            var passive = new TcpSocketOpener(args.Length > 0 ? args[0] : "link6.pwonline.ru");
+            var passive = new TcpSocketOpener(args.Length > 0 ? args[0] : "link1.pwonline.ru");
 
             var mitm = new MitmListner<MitmPair>(active, passive);
             mitm.Accepting += Mitm_MitmPairAccepted;
